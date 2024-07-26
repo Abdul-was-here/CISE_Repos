@@ -25,11 +25,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: CISE_Repos/worksheet2/package.json  # Use the relative path here
+        working-directory: CISE_Repos/worksheet2  # Use the relative path here
 
       - name: Run tests
         run: npm test
-        working-directory: CISE_Repos/package.json  # Ensure npm test is run in the correct directory
+        working-directory: CISE_Repos/worksheet2 # Ensure npm test is run in the correct directory
 
       - name: Build
         run: npm run build
