@@ -12,20 +12,11 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [12.x]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: List files in the root directory
-        run: ls -la
-
-      - name: List files in CISE_Repos
-        run: ls -la CISE_Repos
-
-      - name: List files in worksheet2
-        run: ls -la CISE_Repos/worksheet2  # Adjust this path as needed
 
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -34,12 +25,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: CISE_Repos/worksheet2  # Ensure this path is correct
 
       - name: Run tests
         run: npm test
-        working-directory: CISE_Repos/worksheet2
 
       - name: Build
         run: npm run build
-        working-directory: CISE_Repos/worksheet2
